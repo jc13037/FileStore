@@ -1,0 +1,48 @@
+﻿Visual Studio is configuring the resources for continuous build delivery on Team Project FileStore to App Service FileStore3-dev-as.
+
+Configuring continuous delivery. This might take several minutes...
+
+Creating VSTS project FileStore on jc13037...........done
+
+Creating Azure resources: 
+  Creating Resource Group FileStore3-dev-rg.....done
+  Creating App Service Plan FileStore3-dev-asp..............done
+  Creating App Service FileStore3-dev-as...........done
+
+Creating build and release definitions...................................................................................................................done
+
+The continuous build delivery setup for Team Project FileStore completed successfully. Builds are now automatically generated and deployed to App Service FileStore3-dev-as upon code updates.
+Details:
+  App Service:  FileStore3-dev-as
+  VSTS Team Project Name: FileStore
+  VSTS Team Project: https://jc13037.visualstudio.com/FileStore
+  Build Definition: https://jc13037.visualstudio.com/_permalink/_build/index?collectionId=5251451a-6b38-4738-baa1-89f40e654e1f&projectId=dd315ee2-8aef-436f-a4ef-a7a2e69fc4cf&definitionId=1
+  Release Definition: https://jc13037.visualstudio.com/dd315ee2-8aef-436f-a4ef-a7a2e69fc4cf/_release?definitionId=1
+
+
+
+
+Visual Studio is configuring the resources for continuous build delivery on Team Project FileStore-2 to App Service FileStore3-20171223122630840-dev-as.
+
+Configuring continuous delivery. This might take several minutes...
+
+Creating VSTS project FileStore-2 on jc13037...........done
+
+Creating Azure resources: 
+  Creating Resource Group FileStore3-20171223122629262-dev-rg....done
+  Creating App Service Plan FileStore3-20171223122631387-dev-asp..............done
+  Creating App Service FileStore3-20171223122630840-dev-as............done
+
+Creating build and release definitions...............................................................................................done
+
+The continuous build delivery setup for Team Project FileStore-2 completed successfully. Builds are now automatically generated and deployed to App Service FileStore3-20171223122630840-dev-as upon code updates.
+Details:
+  App Service:  FileStore3-20171223122630840-dev-as
+  VSTS Team Project Name: FileStore-2
+  VSTS Team Project: https://jc13037.visualstudio.com/FileStore-2
+  Build Definition: https://jc13037.visualstudio.com/_permalink/_build/index?collectionId=5251451a-6b38-4738-baa1-89f40e654e1f&projectId=10364aa9-1bc4-4b99-ae17-1602aeec9c63&definitionId=2
+  Release Definition: https://jc13037.visualstudio.com/10364aa9-1bc4-4b99-ae17-1602aeec9c63/_release?definitionId=1
+
+
+
+
