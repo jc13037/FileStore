@@ -1,0 +1,115 @@
+﻿@page
+@model ProfilesModel
+@{
+    ViewData["Title"] = "Profiles";
+}
+
+<h2>Profiles</h2>
+<hr />
+
+@{
+    if (Model.ProfileList.Count == 0)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            You do not currently have any profiles, start by creating a profile below
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Create Profile</h3>
+                <hr />
+                <form method="post" asp-page-handler="CreateProfile">
+                    <div class="form-group">
+                        <label asp-for="Profile.ProfileName" class="control-label"></label>
+                        <input asp-for="Profile.ProfileName" type="text" class="form-control" />
+                        <span asp-validation-for="Profile.ProfileName" class="text-danger"></span>
+                    </div>
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </form>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Create Profile</h3>
+                <hr />
+                <form method="post" asp-page-handler="CreateProfile">
+                    <div class="form-group">
+                        <label asp-for="Profile.ProfileName" class="control-label"></label>
+                        <input asp-for="Profile.ProfileName" type="text" class="form-control" />
+                        <span asp-validation-for="Profile.ProfileName" class="text-danger"></span>
+                    </div>
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </form>
+            </div>
+        </div>
+
+        <hr />
+
+        foreach (var profile in Model.ProfileList)
+        {
+            <div class="row pt-3 pb-3">
+                <div class="col-10">
+                    <a asp-page="EditProfile" asp-route-profileID="@profile.ProfileID">
+                        <h3>@profile.ProfileName</h3>
+                    </a>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => profile.Files[0].FileTitle)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => profile.Files[0].FileCreateDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => profile.Files[0].FileSize)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => profile.Files[0].FileUploadDate)
+                                </th>
+                                <th>
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var file in profile.Files)
+                            {
+                                <tr>
+                                    <td>
+                                        <a asp-page-handler="DownloadFile" asp-route-fileID="@file.FileID">
+                                            @Html.DisplayFor(modelItem => file.FileTitle)
+                                        </a>                                        
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => file.FileCreateDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => file.FileSize)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => file.FileUploadDate)
+                                    </td>
+                                    <td>
+                                        <form asp-page-handler="DeleteFile" asp-route-fileID="@file.FileID" method="post" id="deleteFile">
+                                            <span class="btn-link" style="cursor: pointer;" onclick="document.getElementById('deleteFile').submit()">Delete</span>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+        }
+
+    }
+}

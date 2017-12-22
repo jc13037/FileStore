@@ -1,0 +1,31 @@
+﻿@page
+@model FileStore3.Pages.DashboardModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+<div>
+    <h4>Profile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.ProfileName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Profile.ProfileName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.ApplicationUserID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Profile.ApplicationUserID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Profile.ProfileID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
